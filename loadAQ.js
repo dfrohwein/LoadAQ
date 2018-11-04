@@ -117,8 +117,7 @@ if (typeof LoadAQ == 'undefined') {
                 if (args == "" || !args) {
                     var rm = val.getElementsByClassName("hiddenAQ");
                     var txt = rm[0].textContent;
-                    debugger;
-                    if (txt.substring(1) != "{") {
+                    if (txt.substring(0,1) != "{") {
                         txt = txt.substring(1, txt.length-1);
                     }
                     args = JSON.parse(txt);
@@ -140,12 +139,11 @@ if (typeof LoadAQ == 'undefined') {
         var loadIterate = function () {
 
             var val = LoadAQCue[0];
-            debugger;
             var args = JSON.parse(val.getAttribute("loadAQargs"));
             if (args == "" || !args) {
                 var rm = val.getElementsByClassName("hiddenAQ");
                 var txt = rm[0].textContent;
-                if (txt.substring(1) != "{") {
+                if (txt.substring(0,1) != "{") {
                     txt = txt.substring(1, txt.length-1);
                 }
                 args = JSON.parse(txt);
