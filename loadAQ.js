@@ -117,9 +117,11 @@ if (typeof LoadAQ == 'undefined') {
                 if (args == "" || !args) {
                     var rm = val.getElementsByClassName("hiddenAQ");
                     var txt = rm[0].textContent;
+                    console.log(txt);
                     if (txt.substring(0,1) != "{") {
                         txt = txt.substring(1, txt.length-1);
                     }
+                    console.log(txt);
                     args = JSON.parse(txt);
                 }
                 if (args.url) {
