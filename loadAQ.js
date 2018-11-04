@@ -116,13 +116,13 @@ if (typeof LoadAQ == 'undefined') {
                 var args = JSON.parse(val.getAttribute("loadAQargs"));
                 if (args == "" || !args) {
                     var rm = val.getElementsByClassName("hiddenAQ");
-                    var txt = rm[0].textContent;
-                    console.log(txt);
-                    if (txt.substring(0,1) != "{") {
-                        txt = txt.substring(1, txt.length-1);
-                    }
-                    console.log(txt);
-                    args = JSON.parse(txt);
+                    var txt = rm[0].textContent.split(".-.");
+                    var args = {};
+                    args[txt[0]] = txt[1];
+                    args[txt[2]] = txt[3];
+                    args[txt[4]] = txt[5];
+                    args[txt[6]] = txt[7];
+                    args[txt[8]] = txt[9];
                 }
                 if (args.url) {
                     tooltip = args.url;
@@ -144,11 +144,13 @@ if (typeof LoadAQ == 'undefined') {
             var args = JSON.parse(val.getAttribute("loadAQargs"));
             if (args == "" || !args) {
                 var rm = val.getElementsByClassName("hiddenAQ");
-                var txt = rm[0].textContent;
-                if (txt.substring(0,1) != "{") {
-                    txt = txt.substring(1, txt.length-1);
-                }
-                args = JSON.parse(txt);
+                var txt = rm[0].textContent.split(".-.");
+                var args = {};
+                args[txt[0]] = txt[1];
+                args[txt[2]] = txt[3];
+                args[txt[4]] = txt[5];
+                args[txt[6]] = txt[7];
+                args[txt[8]] = txt[9];
             }
             if (!args.loadAsText) {
                 args.loadAsText = false;
