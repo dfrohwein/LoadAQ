@@ -114,6 +114,10 @@ if (typeof LoadAQ == 'undefined') {
                 val.style.height = "100px";
                 var tooltip = "loading";
                 var args = JSON.parse(val.getAttribute("loadAQargs"));
+                if(args == "" || !args) {
+                    var rm = val.getElementsByClassName("hiddenAQ");
+                    args = JSON.parse(rm[0].textContent);
+                }
                 if (args.url) {
                     tooltip = args.url;
                 }
@@ -131,8 +135,12 @@ if (typeof LoadAQ == 'undefined') {
         var loadIterate = function () {
 
             var val = LoadAQCue[0];
-
+            debugger;
             var args = JSON.parse(val.getAttribute("loadAQargs"));
+            if(args == "" || !args) {
+                var rm = val.getElementsByClassName("hiddenAQ");
+                args = JSON.parse(rm[0].textContent);
+            }
             if (args.containerID) {
                 var apnd = document.createElement("div");
                 apnd.id = args.containerID;
